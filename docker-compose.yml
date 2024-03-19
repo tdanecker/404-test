@@ -1,0 +1,21 @@
+version: "3"
+services:
+  response-404:
+    image: colinodell/static-response-server
+    ports:
+      - "8080:8080"
+    environment:
+      HTTP_CODE: 404
+      HTTP_BODY: "Not Found"
+      HTTP_HEADERS: "Content-Type: text/plain"
+      VERBOSE: 1
+
+  response-200:
+    image: colinodell/static-response-server
+    ports:
+      - "8080:8080"
+    environment:
+      HTTP_CODE: 200
+      HTTP_BODY: "Hello World"
+      HTTP_HEADERS: "Content-Type: text/plain|Cache-Control: max-age=10, public"
+      VERBOSE: 1
